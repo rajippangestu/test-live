@@ -20,7 +20,7 @@ export const createOrder = async (req: Request, res: Response) => {
 
         await new Promise(r => setTimeout(r, 3000));
 
-        const orderNumber = generateOrderNumber(customerId);
+        const orderNumber = await generateOrderNumber(customerId);
 
         const total = calculateTotal(orderData.items);
 
