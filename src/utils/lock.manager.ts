@@ -1,12 +1,13 @@
 const customerLocks: Record<number, boolean> = {};
 
-export const acquireLock = async (customerId: number): Promise<void> => {
-    while (customerLocks[customerId]) {
-        await new Promise(r => setTimeout(r, 5));
+export const acquireLock = async (customerId: number): Promise<boolean> => {
+    if (customerLocks[customerId]) {
+        return false;
     }
     customerLocks[customerId] = true;
+    return true;
 };
 
 export const releaseLock = (customerId: number): void => {
-    customerLocks[customerId] = false;
+    delete customerLocks[customerId];
 };

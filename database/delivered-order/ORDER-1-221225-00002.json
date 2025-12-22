@@ -1,0 +1,24 @@
+{
+  "no_order": "ORDER-1-221225-00002",
+  "id_customer": 1,
+  "name": "unknown",
+  "email": "unknown",
+  "address": "Jl.Maleer",
+  "payment_type": "Transfer",
+  "items": [
+    {
+      "id_product": 1,
+      "name": "Produk A",
+      "price": 20000,
+      "qty": 3
+    },
+    {
+      "id_product": 2,
+      "name": "Produk B",
+      "price": 10000,
+      "qty": 2
+    }
+  ],
+  "total": 80000,
+  "status": "Dikirim ke customer"
+}

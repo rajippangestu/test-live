@@ -1,0 +1,98 @@
+[
+  {
+    "no_order": "ORDER-1-221225-00001",
+    "id_customer": 1,
+    "name": "unknown",
+    "email": "unknown",
+    "address": "Jl.Maleer",
+    "payment_type": "Cash",
+    "items": [
+      {
+        "id_product": 1,
+        "name": "Produk A",
+        "price": 20000,
+        "qty": 10
+      },
+      {
+        "id_product": 2,
+        "name": "Produk B",
+        "price": 10000,
+        "qty": 7
+      }
+    ],
+    "total": 270000,
+    "status": "Dikirim ke customer"
+  },
+  {
+    "no_order": "ORDER-1-221225-00002",
+    "id_customer": 1,
+    "name": "unknown",
+    "email": "unknown",
+    "address": "Jl.Maleer",
+    "payment_type": "Transfer",
+    "items": [
+      {
+        "id_product": 1,
+        "name": "Produk A",
+        "price": 20000,
+        "qty": 3
+      },
+      {
+        "id_product": 2,
+        "name": "Produk B",
+        "price": 10000,
+        "qty": 2
+      }
+    ],
+    "total": 80000,
+    "status": "Dikirim ke customer"
+  },
+  {
+    "no_order": "ORDER-2-221225-00001",
+    "id_customer": 2,
+    "name": "test",
+    "email": "test2",
+    "address": "Jl.Maleer",
+    "payment_type": "Transfer",
+    "items": [
+      {
+        "id_product": 1,
+        "name": "Produk A",
+        "price": 20000,
+        "qty": 30
+      },
+      {
+        "id_product": 2,
+        "name": "Produk B",
+        "price": 10000,
+        "qty": 21
+      }
+    ],
+    "total": 810000,
+    "status": "Dikirim ke customer"
+  },
+  {
+    "no_order": "ORDER-2-221225-00002",
+    "id_customer": 2,
+    "name": "test",
+    "email": "test2",
+    "address": "Jl.Maleer",
+    "payment_type": "Transfer",
+    "items": [
+      {
+        "id_product": 1,
+        "name": "Produk A",
+        "price": 20000,
+        "qty": 100
+      },
+      {
+        "id_product": 2,
+        "name": "Produk B",
+        "price": 10000,
+        "qty": 4
+      }
+    ],
+    "total": 2040000,
+    "status": "Dikirim ke customer"
+  }
+]

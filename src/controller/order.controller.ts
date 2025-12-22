@@ -5,23 +5,29 @@ import { acquireLock, releaseLock } from '../utils/lock.manager';
 import { OrderDTO } from '../dtos/order.dto';
 
 export const createOrder = async (req: Request, res: Response) => {
+    const customerId = Number(req.headers['x-customer-id']);
+    const name = String(req.headers['x-customer-name'] || 'unknown');
+    const email = String(req.headers['x-customer-email'] || 'unknown');
+
+    if (!customerId) {
+        return res.status(400).json({ message: 'Customer ID tidak ada', result: null });
+    }
+
+    const locked = await acquireLock(customerId);
+    if (!locked) {
+        return res.status(409).json({
+            message: 'Request sebelumnya untuk customer ini masih diproses',
+            result: null
+        });
+    }
+
     try {
-        const customerId = Number(req.headers['x-customer-id']);
-        const name = String(req.headers['x-customer-name'] || 'unknow');
-        const email = String(req.headers['x-customer-email'] || 'unknow');
-
-        if (!customerId) return res.status(400).json({ message: 'Customer ID tidak ada', result: null });
-
-        if (!acquireLock(customerId)) {
-            return res.status(409).json({ message: 'Request sebelumnya untuk customer ini masih diproses', result: null });
-        }
-
         const orderData: OrderDTO = req.body;
 
+        // delay async 3 detik
         await new Promise(r => setTimeout(r, 3000));
 
         const orderNumber = await generateOrderNumber(customerId);
-
         const total = calculateTotal(orderData.items);
 
         const order = {
@@ -33,7 +39,7 @@ export const createOrder = async (req: Request, res: Response) => {
             payment_type: orderData.payment_type,
             items: orderData.items,
             total,
-            status: 'pending'
+            status: 'Order Diterima'
         };
 
         await saveOrderToFile(order);
@@ -42,6 +48,6 @@ export const createOrder = async (req: Request, res: Response) => {
     } catch (err: any) {
         return res.status(500).json({ message: err.message, result: null });
     } finally {
-        releaseLock(Number(req.headers['x-customer-id']));
+        releaseLock(customerId);
     }
 };

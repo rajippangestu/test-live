@@ -1,0 +1,24 @@
+{
+  "no_order": "ORDER-2-221225-00001",
+  "id_customer": 2,
+  "name": "test",
+  "email": "test2",
+  "address": "Jl.Maleer",
+  "payment_type": "Transfer",
+  "items": [
+    {
+      "id_product": 1,
+      "name": "Produk A",
+      "price": 20000,
+      "qty": 30
+    },
+    {
+      "id_product": 2,
+      "name": "Produk B",
+      "price": 10000,
+      "qty": 21
+    }
+  ],
+  "total": 810000,
+  "status": "Dikirim ke customer"
+}
